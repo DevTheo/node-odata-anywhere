@@ -2,12 +2,7 @@
     "version": "1.5.1",
     "compilerOptions": {
         "target": "es5",
-        "module": "commonjs",
-        "declaration": false,
-        "noImplicitAny": false,
-        "removeComments": false,
-        "noLib": false,
-        "emitDecoratorMetadata": false
+        "module": "commonjs"
     },
     "filesGlob": [
         "./**/*.ts",
@@ -16,7 +11,7 @@
     "files": [
         "./typings/node/node.d.ts",
         "./typings/express/express.d.ts",
-        "./src/noa-idriver.ts",
+        "./src/noa-interfaces.ts",
         "./src/noa-mongodriver.ts",
         "./src/noa-config.ts",
         "./src/noa-schemaparser.ts",
