@@ -1,10 +1,29 @@
-export module NOA
+export module NOAInterfaces
 {
-	module Interfaces {
+	enum SchemaTypes {
+		Simple,
+		Full,
+		Complex
+	}
 	
-		interface INOADriver
-		{
-			
-		}
+	interface IColumnDef {
+		CoumnName: String,
+		ColumnType: any,
+		ColumnLength?: number,
+		Precision?: number,
+		IsPrimaryKey?:boolean
+	} 
+	interface ITableDef {
+		TableName: String,
+		Columns:IColumnDef[]
+	}
+	
+	interface IQuery {
+	}
+	
+	interface INOADriver {
+		ConnectionString:String;
+		Tables:ITableDef[];
+		
 	}
 }

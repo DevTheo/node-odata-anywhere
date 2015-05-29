@@ -2,7 +2,7 @@
   "name": "node-odata-anywhere",
   "version": "0.0.1",
   "description": "Node Odata Anywhere will provide a generic way of providing OData routes on top of Express that can target numerous databases (I know the name isn't great.. but node-odata, my preferred name, was taken.",
-  "main": "src\index.js",
+  "main": "src\noa-main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
