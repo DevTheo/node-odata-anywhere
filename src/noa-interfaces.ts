@@ -1,29 +1,55 @@
-export module NOAInterfaces
+module NOAInterfaces
 {
-	enum SchemaTypes {
-		Simple,
-		Full,
+	export enum DataTypes {
+		Boolean,
+		String,
+		Int,
+		Decimal,
+		Date,
 		Complex
 	}
+	export enum SchemaTypes {
+		simple,
+		full,
+		complex
+	}
 	
-	interface IColumnDef {
-		CoumnName: String,
-		ColumnType: any,
-		ColumnLength?: number,
-		Precision?: number,
-		IsPrimaryKey?:boolean
+	export interface IColumnDef {
+		coumnName: String;
+		columnType: DataTypes;
+		columnLength?: number;
+		precision?: number;
+		isPrimaryKey?:boolean;
 	} 
-	interface ITableDef {
-		TableName: String,
-		Columns:IColumnDef[]
+	export interface ITableDef {
+		schemaType:SchemaTypes;
+		tableName: String;
+		columns:IColumnDef[];
+	}
+	export interface IRouteDef {
+		path:string;
+		table:ITableDef;
+		disallowGet?:boolean;		
+		disallowDelete?:boolean;
+		disallowInsert?:boolean;
+		disallowUpdate?:boolean;
+	}
+	export interface IQuery {		
+		select:any;
+		from:ITableDef;
+		where:any;
+		orderby:any;
+		groupby:any;	
 	}
 	
-	interface IQuery {
-	}
-	
-	interface INOADriver {
-		ConnectionString:String;
-		Tables:ITableDef[];
-		
+	export interface INOADriver {
+		connectionString:String;
+		tables:ITableDef[];
+		registerTable(tableDef:ITableDef);
+		select(query:IQuery):any[];
+		update(data:any, query?:IQuery);
+		insert(data:any);
+		delete(queryOrID:IQuery);
+		delete(queryOrID:string);
 	}
 }
